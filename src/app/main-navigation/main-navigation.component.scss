@@ -1,0 +1,9 @@
+.main-navigation {
+  display: grid;
+  gap: 8px;
+  grid-auto-flow: column;
+
+  &.is-mobile {
+    grid-auto-flow: row;
+  }
+}

@@ -1,0 +1,11 @@
+<nav class="main-navigation" [class.is-mobile]="isMobile">
+  <a
+    *ngFor="let item of items"
+    mat-button [class.mat-flat-button]="item.url === activeItemUrl"
+    routerLink="{{ item.url }}"
+    class="main-navigation__link"
+    (click)="select.emit()"
+  >
+    {{ item.title }}
+  </a>
+</nav>
