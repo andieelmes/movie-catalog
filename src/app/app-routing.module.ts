@@ -7,7 +7,8 @@ import { MovieComponent } from './movie/movie.component';
 const routes: Routes = [
   { path: '', component: ListComponent },
   { path: 'movies/:id', component: MovieComponent },
-  { path: 'favorites', component: FavoritesComponent }
+  { path: 'favorites', component: FavoritesComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
