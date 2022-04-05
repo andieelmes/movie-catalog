@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { HeaderComponent } from './header/header.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 
@@ -19,6 +20,7 @@ import { LanguageSwitcherComponent } from './language-switcher/language-switcher
 @NgModule({
   declarations: [
     AppComponent,
+    MainLayoutComponent,
     HeaderComponent,
     ListComponent,
     FavoritesComponent,
