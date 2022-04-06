@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { HeaderComponent } from './header/header.component';
@@ -21,6 +22,7 @@ import { MovieComponent } from './movie/movie.component';
 import { LanguageSwitcherComponent } from './language-switcher/language-switcher.component';
 import { FilterComponent } from './filter/filter.component';
 import { PosterComponent } from './poster/poster.component';
+import { CatalogComponent } from './catalog/catalog.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { PosterComponent } from './poster/poster.component';
     LanguageSwitcherComponent,
     FilterComponent,
     PosterComponent,
+    CatalogComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { PosterComponent } from './poster/poster.component';
     MatInputModule,
     MatSelectModule,
     HttpClientModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

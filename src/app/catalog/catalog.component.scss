@@ -1,0 +1,21 @@
+.catalog {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.catalog__table {
+  min-width: 900px;
+  width: 100%;
+}
+
+.catalog__cell {
+  padding: 10px;
+}
+
+.catalog__poster {
+  width: 200px;
+}
+
+.catalog__date {
+  width: 100px;
+}
