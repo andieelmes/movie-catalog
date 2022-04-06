@@ -20,6 +20,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { MovieComponent } from './movie/movie.component';
 import { LanguageSwitcherComponent } from './language-switcher/language-switcher.component';
 import { FilterComponent } from './filter/filter.component';
+import { PosterComponent } from './poster/poster.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FilterComponent } from './filter/filter.component';
     MainNavigationComponent,
     LanguageSwitcherComponent,
     FilterComponent,
+    PosterComponent,
   ],
   imports: [
     BrowserModule,
