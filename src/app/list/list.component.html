@@ -1,1 +1,30 @@
-<app-filter></app-filter>
+<div class="list">
+  <app-filter
+    class="list__filter"
+    (searchQueryChange)="search($event)"
+    [genres]="genres"
+    (genreSelect)="selectGenres($event)"
+    [columns]="columns"
+    (columnSelect)="selectColumns($event)"
+    [displayedColumns]="displayedColumns"
+  ></app-filter>
+
+  <div class="list__body" #moviesContainer>
+    <app-catalog
+    [movies]="paginatedMoves"
+    [genres]="genres"
+    [displayedColumns]="displayedColumns"
+  ></app-catalog>
+  </div>
+
+  <mat-paginator
+    class="list__footer"
+    [length]="movies.length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    [pageSizeOptions]="pageSizeOptions"
+    aria-label="Select page"
+    (page)="handlePagination($event)"
+  >
+  </mat-paginator>
+</div>

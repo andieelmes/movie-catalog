@@ -1,0 +1,14 @@
+.list {
+  height: 100vh;
+}
+
+.list__body {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.list__footer {
+  position: sticky;
+  display: block;
+  bottom: 0;
+}
