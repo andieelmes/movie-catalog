@@ -15,5 +15,7 @@
       Produced by
       <em *ngFor="let company of movie.production_companies; let last = last">{{formatListElement(company.name, last)}}</em>
     </p>
+
+    <app-tags class="movie__tags" [id]="movie.id" [title]="movie.title"></app-tags>
   </div>
 </div>

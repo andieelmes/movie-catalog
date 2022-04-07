@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatChipsModule } from '@angular/material/chips';
 
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { HeaderComponent } from './header/header.component';
@@ -25,6 +26,7 @@ import { LanguageSwitcherComponent } from './language-switcher/language-switcher
 import { FilterComponent } from './filter/filter.component';
 import { PosterComponent } from './poster/poster.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { TagsComponent } from './tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { CatalogComponent } from './catalog/catalog.component';
     FilterComponent,
     PosterComponent,
     CatalogComponent,
+    TagsComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { CatalogComponent } from './catalog/catalog.component';
     FormsModule,
     ReactiveFormsModule,
     MatPaginatorModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
