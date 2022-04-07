@@ -1,1 +1,19 @@
-<p>movie works!</p>
+<div *ngIf="movie" class="movie">
+  <app-poster src="{{movie.poster_path}}" alt="{{movie.title}} poster"></app-poster>
+  <div>
+    <h1>{{ movie.title }}</h1>
+    <p><em>{{ movie.tagline }}</em></p>
+    <p>Released <b>{{ movie.release_date | date:'longDate' }}</b></p>
+    <p *ngIf="movie.genre_ids">Genres {{ formatGenres(movie.genre_ids) }}</p>
+    <p *ngIf="movie.runtime">Duration: {{ formatDuration(movie.runtime) }}</p>
+    <p *ngIf="movie.production_countries">
+      Produced in
+      <em *ngFor="let country of movie.production_countries; let last = last">{{formatListElement(country.name, last)}}</em>
+    </p>
+    <p>{{ movie.overview }}</p>
+    <p *ngIf="movie.production_companies">
+      Produced by
+      <em *ngFor="let company of movie.production_companies; let last = last">{{formatListElement(company.name, last)}}</em>
+    </p>
+  </div>
+</div>

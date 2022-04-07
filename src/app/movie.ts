@@ -13,11 +13,22 @@ export interface Movie {
   adult?: boolean
   overview?: string
   release_date?: string,
-  genre_ids: Genre['id'][],
+  genre_ids?: Genre['id'][],
   id?: number,
   original_title?: string
   original_language?: string
   title?: string
   popularity?: number
   vote_average?: number,
+}
+
+export interface MovieInDetail extends Movie {
+  tagline?: string,
+  production_companies?: {
+    name: string,
+  } [],
+  production_countries?: {
+    name: string,
+  } [],
+  runtime?: number,
 }

@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import locationParams from 'src/helpers/location-params';
 
 import { environment } from '../environments/environment';
-import { DBConfig, Genre, Movie } from './movie';
+import { DBConfig, Genre, Movie, MovieInDetail } from './movie';
 
 const DEFAULT_POSTER_SIZE = 'w500';
 
@@ -75,6 +75,14 @@ export class MovieService {
       .pipe(
         map(result => result.results.map(({ poster_path, ...rest}) => ({...rest, poster_path: poster_path ? this.getPosterUrl(poster_path) : ''}))),
         catchError(this.handleError<Movie[]>('get movies', []))
+      );
+  }
+
+  getMovie(id: number): Observable<MovieInDetail> {
+    return this.http.get<MovieInDetail>(this.getUrl(`/movie/${id}`))
+      .pipe(
+        map(({ poster_path, ...rest }) => ({...rest, poster_path: poster_path ? this.getPosterUrl(poster_path) : ''})),
+        catchError(this.handleError<MovieInDetail>('get movie', {}))
       );
   }
 

@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { formatGenres } from 'src/helpers/genre';
+
 import { Movie, Genre } from '../movie';
 
 @Component({
@@ -12,7 +14,7 @@ export class CatalogComponent {
   @Input() displayedColumns: string[] = [];
   @Input() genres: Genre[] = [];
 
-  formatGenres(genres: Genre['id'][]) {
-    return genres.map(genreId => this.genres.find(({ id }) => id === genreId)?.name).filter(Boolean).join(', ');
+  formatGenres(genreIds: Genre['id'][]) {
+    formatGenres(genreIds, this.genres)
   }
 }
