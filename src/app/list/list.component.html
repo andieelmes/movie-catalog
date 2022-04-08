@@ -11,10 +11,11 @@
 
   <div class="list__body" #moviesContainer>
     <app-catalog
-    [movies]="paginatedMoves"
-    [genres]="genres"
-    [displayedColumns]="displayedColumns"
-  ></app-catalog>
+      class="list__table"
+      [movies]="paginatedMoves"
+      [genres]="genres"
+      [displayedColumns]="displayedColumns"
+    ></app-catalog>
   </div>
 
   <mat-paginator
