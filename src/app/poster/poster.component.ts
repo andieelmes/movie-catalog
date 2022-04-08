@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+type Size = 'table' | 'detail';
+
 @Component({
   selector: 'app-poster',
   templateUrl: './poster.component.html',
@@ -8,4 +10,5 @@ import { Component, Input } from '@angular/core';
 export class PosterComponent {
   @Input() src?: string;
   @Input() alt?: string;
+  @Input() size?: Size;
 }
