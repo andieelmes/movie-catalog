@@ -1,1 +1,17 @@
-<p>favorites works!</p>
+<form class="favorites">
+  <mat-form-field appearance="fill" class="favorites__tags-select">
+    <mat-label>Select tags...</mat-label>
+    <mat-select multiple [formControl]="tagsSelect">
+      <mat-option *ngFor="let tag of tags" [value]="tag">
+        {{tag}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <ul class="favorites__movies">
+    <li *ngFor="let movie of movies"class="favorites__movie">
+      <a class="favorites__movie-link" routerLink="/movies/{{ movie.id }}">{{movie.title}}</a>
+      (<span>{{ movie.tags.join(', ')}}</span>)
+    </li>
+  </ul>
+</form>

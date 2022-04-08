@@ -5,7 +5,7 @@ import localStorage from 'src/helpers/local-storage';
 import { Tag } from './favorite';
 import { Movie } from './movie';
 
-interface FavoriteMovie {
+export interface FavoriteMovie {
   id: Movie['id'],
   title: Movie['title'],
   tags: Tag[],

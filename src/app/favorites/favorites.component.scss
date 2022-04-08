@@ -1,0 +1,20 @@
+.favorites__tags-select {
+  width: 100%;
+}
+
+.favorites__movies {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.favorites__movie-link {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.favorites__movie {
+  + .favorites__movie {
+    margin-top: 10px;
+  }
+}
