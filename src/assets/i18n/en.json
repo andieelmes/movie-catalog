@@ -1,4 +1,14 @@
 {
+  "duration": {
+    "hours": {
+      "one": "hour",
+      "many": "hours"
+    },
+    "minutes": {
+      "one": "minute",
+      "many": "minutes"
+    }
+  },
   "favorite": {
     "notFound": "Try tagging some movies first",
     "title": "Favorites"

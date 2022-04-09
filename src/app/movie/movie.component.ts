@@ -44,11 +44,4 @@ export class MovieComponent implements OnInit {
   formatListElement(element: string, last: Boolean) {
     return `${element}${last ? '' : ', '}`
   }
-
-  formatDuration(duration: number) {
-    const hours = Math.floor(duration / 60);
-    const minutes = duration % 60;
-
-    return `${hours ? `${hours} hours` :'' } ${minutes} minutes`
-  }
 }

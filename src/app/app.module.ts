@@ -37,6 +37,8 @@ import { EmptyComponent } from './empty/empty.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { VisuallyHiddenComponent } from './visually-hidden/visually-hidden.component';
 
+import { Duration } from './pipes/duration';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -58,6 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EmptyComponent,
     SpinnerComponent,
     VisuallyHiddenComponent,
+    Duration,
   ],
   imports: [
     BrowserModule,

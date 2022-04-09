@@ -6,7 +6,7 @@
     <p class="movie__overview" *ngIf="movie.overview">{{ movie.overview }}</p>
     <p *ngIf="movie.release_date">{{ 'movie.releaseDate' | translate }}: <b>{{ movie.release_date | date:'longDate' }}</b></p>
     <p *ngIf="movie.genres">{{ 'movie.genres' | translate }}: {{ formatGenres(movie.genres) }}</p>
-    <p *ngIf="movie.runtime">{{ 'movie.duration' | translate }}: {{ formatDuration(movie.runtime) }}</p>
+    <p *ngIf="movie.runtime">{{ 'movie.duration' | translate }}: {{ movie.runtime | duration | async }}</p>
     <p *ngIf="movie.production_countries">
       {{ 'movie.producedIn' | translate }}:
       <span *ngFor="let country of movie.production_countries; let last = last">{{formatListElement(country.name, last)}}</span>
