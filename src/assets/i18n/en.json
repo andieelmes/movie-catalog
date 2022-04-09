@@ -1,6 +1,7 @@
 {
   "favorite": {
-    "notFound": "Try tagging some movies first"
+    "notFound": "Try tagging some movies first",
+    "title": "Favorites"
   },
   "filter": {
     "columns": "Columns",
