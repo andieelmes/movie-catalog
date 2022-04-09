@@ -1,4 +1,7 @@
 {
+  "favorite": {
+    "notFound": "Try tagging some movies first"
+  },
   "filter": {
     "columns": "Columns",
     "genres": "Genres",
