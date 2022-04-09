@@ -32,6 +32,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { TagsComponent } from './tags/tags.component';
 
 import { CustomMatPaginatorIntl } from 'src/intl/custom-mat-paginator-intl';
+import { EmptyComponent } from './empty/empty.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -51,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PosterComponent,
     CatalogComponent,
     TagsComponent,
+    EmptyComponent,
   ],
   imports: [
     BrowserModule,

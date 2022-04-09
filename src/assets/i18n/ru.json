@@ -18,6 +18,7 @@
     "favorites": "Избранное кино",
     "home": "Главная"
   },
+  "notFoundMessage": "Ничего не найдено",
   "paginator": {
     "action": "Выберите страницу",
     "itemsPerPageLabel": "Количество элементов на странице:",

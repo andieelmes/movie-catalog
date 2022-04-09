@@ -18,6 +18,7 @@
     "favorites": "Favorite Movies",
     "home": "Home"
   },
+  "notFoundMessage": "Nothing to see here",
   "paginator": {
     "action": "Select page",
     "itemsPerPageLabel": "Items per page:",
