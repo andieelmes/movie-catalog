@@ -25,6 +25,8 @@ export class ListComponent implements OnInit {
   defaultPageSizeOptions: number[] = [5, 10, 25, 50];
   pageSizeOptions = this.defaultPageSizeOptions;
 
+  isCatalogLoading: boolean = true;
+
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
@@ -39,6 +41,7 @@ export class ListComponent implements OnInit {
   getMovies(): void {
     this.movieService.getMovies().subscribe(movies => {
       this.movies = movies;
+      this.isCatalogLoading = false;
       this.resetPagination();
     });
   }

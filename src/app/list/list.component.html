@@ -18,7 +18,8 @@
       *ngIf="paginatedMovies.length"
     ></app-catalog>
 
-    <app-empty *ngIf="!paginatedMovies.length"></app-empty>
+    <app-empty *ngIf="!paginatedMovies.length && !isCatalogLoading"></app-empty>
+    <app-spinner *ngIf="isCatalogLoading"></app-spinner>
   </div>
 
   <mat-paginator
