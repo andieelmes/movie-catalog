@@ -8,6 +8,9 @@
     "genres": "Genres",
     "search": "Search"
   },
+  "main": {
+    "title": "Search Movies"
+  },
   "movie": {
     "duration": "Duration",
     "genres": "Genres",
