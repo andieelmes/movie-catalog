@@ -1,3 +1,15 @@
 {
+  "filter": {
+    "columns": "Столбцы",
+    "genres": "Жанры",
+    "search": "Поиск"
+  },
+  "movie": {
+    "genres": "Жанры",
+    "name": "Название",
+    "overview": "Описание",
+    "poster": "Постер",
+    "releaseDate": "Дата выхода"
+  },
   "title": "Каталог кино"
 }

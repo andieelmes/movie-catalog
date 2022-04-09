@@ -10,7 +10,7 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  columns: string[] = ['poster', 'title', 'release date', 'genres', 'overview'];
+  columns: string[] = ['poster', 'name', 'releaseDate', 'genres', 'overview'];
   displayedColumns: string[] = this.columns;
 
   genres: Genre[] = [];

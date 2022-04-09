@@ -1,3 +1,15 @@
 {
+  "filter": {
+    "columns": "Columns",
+    "genres": "Genres",
+    "search": "Search"
+  },
+  "movie": {
+    "genres": "Genres",
+    "name": "Title",
+    "overview": "Overview",
+    "poster": "Poster",
+    "releaseDate": "Release Date"
+  },
   "title": "Movie Catalog"
 }
