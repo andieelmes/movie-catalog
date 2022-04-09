@@ -1,4 +1,4 @@
-export const languages = { en: 'EN', ru: 'RU'};
+export const languages = { en: 'EN', ru: 'РУ'};
 
 export type Language = keyof typeof languages;
 
