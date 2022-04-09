@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { MovieService } from '../movie.service';
-import { formatGenres } from 'src/helpers/genre';
 
 import { Genre, MovieInDetail } from '../movie';
 @Component({
@@ -33,8 +32,8 @@ export class MovieComponent implements OnInit {
     this.movieService.getGenres().subscribe(genres => this.genres = genres);
   }
 
-  formatGenres(genreIds: Genre['id'][]) {
-    formatGenres(genreIds, this.genres)
+  formatGenres(genres: Genre[]) {
+    return genres.map(genre => genre.name).join(', ');
   }
 
   formatListElement(element: string, last: Boolean) {

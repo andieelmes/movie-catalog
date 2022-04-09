@@ -15,6 +15,6 @@ export class CatalogComponent {
   @Input() genres: Genre[] = [];
 
   formatGenres(genreIds: Genre['id'][]) {
-    formatGenres(genreIds, this.genres)
+    return formatGenres(genreIds, this.genres)
   }
 }

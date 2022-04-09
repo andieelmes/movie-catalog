@@ -4,7 +4,7 @@
     <h1>{{ movie.title }}</h1>
     <p><em>{{ movie.tagline }}</em></p>
     <p>Released <b>{{ movie.release_date | date:'longDate' }}</b></p>
-    <p *ngIf="movie.genre_ids">Genres {{ formatGenres(movie.genre_ids) }}</p>
+    <p *ngIf="movie.genres">{{ 'movie.genres' | translate }}: {{ formatGenres(movie.genres) }}</p>
     <p *ngIf="movie.runtime">Duration: {{ formatDuration(movie.runtime) }}</p>
     <p *ngIf="movie.production_countries">
       Produced in
