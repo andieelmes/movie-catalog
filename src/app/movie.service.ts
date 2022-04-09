@@ -9,7 +9,8 @@ import locationParams from 'src/helpers/location-params';
 import { environment } from '../environments/environment';
 import { DBConfig, Genre, Movie, MovieInDetail } from './movie';
 
-const DEFAULT_POSTER_SIZE = 'w500';
+const DETAIL_POSTER_SIZE = 'w780';
+const CATALOG_POSTER_SIZE = 'w342';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,8 @@ export class MovieService {
 
   private imageConfig: {
     basePath?: string,
-    size?: string,
+    detailSize?: string,
+    catalogSize?: string,
   } = {}
 
   httpOptions = {
@@ -43,15 +45,16 @@ export class MovieService {
     this.getConfig().subscribe(({ secure_base_url, poster_sizes }) => {
       this.imageConfig = {
         basePath: secure_base_url,
-        size: poster_sizes?.includes(DEFAULT_POSTER_SIZE) ? DEFAULT_POSTER_SIZE : poster_sizes?.[0],
+        detailSize: poster_sizes?.includes(DETAIL_POSTER_SIZE) ? DETAIL_POSTER_SIZE : poster_sizes?.[0],
+        catalogSize: poster_sizes?.includes(CATALOG_POSTER_SIZE) ? CATALOG_POSTER_SIZE : poster_sizes?.[0],
       };
     });
   }
 
-  getPosterUrl(path: string): string {
-    if (!this.imageConfig.basePath || !this.imageConfig.size) return '';
+  getPosterUrl(path: string, size?: string): string {
+    if (!this.imageConfig.basePath || !size) return '';
 
-    return `${this.imageConfig.basePath}${this.imageConfig.size}${path}`;
+    return `${this.imageConfig.basePath}${size}${path}`;
   }
 
   getConfig(): Observable<DBConfig> {
@@ -73,7 +76,12 @@ export class MovieService {
   getMovies(genres?: Genre['id'][], query?: string): Observable<Movie[]> {
     return this.http.get<{results: Movie[]}>(this.getUrl('/discover/movie', { with_genres: genres, with_keywords: query }))
       .pipe(
-        map(result => result.results.map(({ poster_path, ...rest}) => ({...rest, poster_path: poster_path ? this.getPosterUrl(poster_path) : ''}))),
+        map(result => (
+          result.results.map(({ poster_path, ...rest}) => ({
+            ...rest,
+            poster_path: poster_path ? this.getPosterUrl(poster_path, this.imageConfig.catalogSize) : ''
+          }))
+        )),
         catchError(this.handleError<Movie[]>('get movies', []))
       );
   }
@@ -81,7 +89,10 @@ export class MovieService {
   getMovie(id: number): Observable<MovieInDetail> {
     return this.http.get<MovieInDetail>(this.getUrl(`/movie/${id}`))
       .pipe(
-        map(({ poster_path, ...rest }) => ({...rest, poster_path: poster_path ? this.getPosterUrl(poster_path) : ''})),
+        map(({ poster_path, ...rest }) => ({
+          ...rest,
+          poster_path: poster_path ? this.getPosterUrl(poster_path, this.imageConfig.detailSize) : ''
+        })),
         catchError(this.handleError<MovieInDetail>('get movie', undefined))
       );
   }
