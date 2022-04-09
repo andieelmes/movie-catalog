@@ -1,6 +1,6 @@
 <form class="favorites">
   <mat-form-field appearance="fill" class="favorites__tags-select">
-    <mat-label>Select tags...</mat-label>
+    <mat-label>{{ 'tags.selectTags' | translate }}...</mat-label>
     <mat-select multiple [formControl]="tagsSelect">
       <mat-option *ngFor="let tag of tags" [value]="tag">
         {{tag}}

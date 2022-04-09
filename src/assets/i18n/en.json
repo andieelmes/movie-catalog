@@ -15,5 +15,11 @@
     "favorites": "Favorite Movies",
     "home": "Home"
   },
+  "tags": {
+    "newTag": "New Tag",
+    "selectTags": "Select tags",
+    "setTags": "Set Tags",
+    "tags": "Tags"
+  },
   "title": "Movie Catalog"
 }
