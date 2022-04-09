@@ -18,7 +18,7 @@ export class ListComponent implements OnInit {
 
   @ViewChild('moviesContainer') moviesContainer?: ElementRef<HTMLDivElement>;
   movies: Movie[] = [];
-  paginatedMoves: Movie[] = [];
+  paginatedMovies: Movie[] = [];
 
   pageSize: number = 10;
   pageIndex: number = 0;
@@ -63,7 +63,7 @@ export class ListComponent implements OnInit {
   }
 
   setPaginatedMovies() {
-    this.paginatedMoves = this.movies.slice(this.pageSize * this.pageIndex, this.pageSize * (this.pageIndex + 1))
+    this.paginatedMovies = this.movies.slice(this.pageSize * this.pageIndex, this.pageSize * (this.pageIndex + 1))
   }
 
   resetPagination() {
