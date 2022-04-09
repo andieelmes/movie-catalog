@@ -15,7 +15,10 @@
       [movies]="paginatedMovies"
       [genres]="genres"
       [displayedColumns]="displayedColumns"
+      *ngIf="paginatedMovies.length"
     ></app-catalog>
+
+    <app-empty *ngIf="!paginatedMovies.length"></app-empty>
   </div>
 
   <mat-paginator
@@ -26,6 +29,7 @@
     [pageSizeOptions]="pageSizeOptions"
     attr.aria-label="{{ 'paginator.action' | translate }}"
     (page)="handlePagination($event)"
+    *ngIf="paginatedMovies.length"
   >
   </mat-paginator>
 </div>
