@@ -3,16 +3,16 @@
   <div>
     <h1>{{ movie.title }}</h1>
     <p><em>{{ movie.tagline }}</em></p>
-    <p>Released <b>{{ movie.release_date | date:'longDate' }}</b></p>
+    <p>{{ 'movie.releaseDate' | translate }}: <b>{{ movie.release_date | date:'longDate' }}</b></p>
     <p *ngIf="movie.genres">{{ 'movie.genres' | translate }}: {{ formatGenres(movie.genres) }}</p>
-    <p *ngIf="movie.runtime">Duration: {{ formatDuration(movie.runtime) }}</p>
+    <p *ngIf="movie.runtime">{{ 'movie.duration' | translate }}: {{ formatDuration(movie.runtime) }}</p>
     <p *ngIf="movie.production_countries">
-      Produced in
+      {{ 'movie.producedIn' | translate }}:
       <em *ngFor="let country of movie.production_countries; let last = last">{{formatListElement(country.name, last)}}</em>
     </p>
     <p>{{ movie.overview }}</p>
     <p *ngIf="movie.production_companies">
-      Produced by
+      {{ 'movie.producedBy' | translate }}:
       <em *ngFor="let company of movie.production_companies; let last = last">{{formatListElement(company.name, last)}}</em>
     </p>
 

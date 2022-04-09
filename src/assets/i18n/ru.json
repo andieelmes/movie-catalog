@@ -5,10 +5,13 @@
     "search": "Поиск"
   },
   "movie": {
+    "duration": "Продолжительность",
     "genres": "Жанры",
     "name": "Название",
     "overview": "Описание",
     "poster": "Постер",
+    "producedBy": "Кинокомпании",
+    "producedIn": "Страны",
     "releaseDate": "Дата выхода"
   },
   "navigation": {

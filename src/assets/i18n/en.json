@@ -5,10 +5,13 @@
     "search": "Search"
   },
   "movie": {
+    "duration": "Duration",
     "genres": "Genres",
     "name": "Title",
     "overview": "Overview",
     "poster": "Poster",
+    "producedBy": "Produced by",
+    "producedIn": "Produced in",
     "releaseDate": "Release Date"
   },
   "navigation": {
