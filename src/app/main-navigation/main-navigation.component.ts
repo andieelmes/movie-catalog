@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 interface MenuItem {
   url: string,
