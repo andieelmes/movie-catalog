@@ -17,6 +17,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator'
 import { MatChipsModule } from '@angular/material/chips';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { HeaderComponent } from './header/header.component';
@@ -33,6 +34,7 @@ import { TagsComponent } from './tags/tags.component';
 
 import { CustomMatPaginatorIntl } from 'src/intl/custom-mat-paginator-intl';
 import { EmptyComponent } from './empty/empty.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -53,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CatalogComponent,
     TagsComponent,
     EmptyComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +80,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     MatPaginatorModule,
     MatChipsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [Title, { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }],
   bootstrap: [AppComponent]
