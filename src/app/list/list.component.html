@@ -24,7 +24,7 @@
     [pageSize]="pageSize"
     [pageIndex]="pageIndex"
     [pageSizeOptions]="pageSizeOptions"
-    aria-label="Select page"
+    attr.aria-label="{{ 'paginator.action' | translate }}"
     (page)="handlePagination($event)"
   >
   </mat-paginator>

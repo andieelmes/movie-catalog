@@ -15,6 +15,14 @@
     "favorites": "Избранное кино",
     "home": "Главная"
   },
+  "paginator": {
+    "action": "Выберите страницу",
+    "itemsPerPageLabel": "Количество элементов на странице:",
+    "nextPage": "Следующая страница",
+    "previousPage": "Предыдущая страница",
+    "range": "{{start}} — {{end}} из {{length}}",
+    "rangeEmpty": "0 из {{length}}"
+  },
   "tags": {
     "newTag": "Новый тег",
     "selectTags": "Выберите теги",

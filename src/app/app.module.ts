@@ -15,7 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator'
 import { MatChipsModule } from '@angular/material/chips';
 
 import { MainLayoutComponent } from './main-layout/main-layout.component';
@@ -30,6 +30,8 @@ import { FilterComponent } from './filter/filter.component';
 import { PosterComponent } from './poster/poster.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { TagsComponent } from './tags/tags.component';
+
+import { CustomMatPaginatorIntl } from 'src/intl/custom-mat-paginator-intl';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -74,7 +76,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatPaginatorModule,
     MatChipsModule,
   ],
-  providers: [Title],
+  providers: [Title, { provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
