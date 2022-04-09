@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -74,7 +74,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatPaginatorModule,
     MatChipsModule,
   ],
-  providers: [],
+  providers: [Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

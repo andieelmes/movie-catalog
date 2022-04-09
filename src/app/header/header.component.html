@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="header" [class.is-mobile]="isMobile">
   <mat-toolbar-row class="header__toolbar">
-    <span>Movie Catalog</span>
+    <span>{{ 'title' | translate }}</span>
 
     <div class="header__actions" *ngIf="!isMobile">
       <app-main-navigation></app-main-navigation>
