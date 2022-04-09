@@ -11,5 +11,9 @@
     "poster": "Poster",
     "releaseDate": "Release Date"
   },
+  "navigation": {
+    "favorites": "Favorite Movies",
+    "home": "Home"
+  },
   "title": "Movie Catalog"
 }

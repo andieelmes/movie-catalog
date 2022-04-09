@@ -11,5 +11,9 @@
     "poster": "Постер",
     "releaseDate": "Дата выхода"
   },
+  "navigation": {
+    "favorites": "Избранное кино",
+    "home": "Главная"
+  },
   "title": "Каталог кино"
 }

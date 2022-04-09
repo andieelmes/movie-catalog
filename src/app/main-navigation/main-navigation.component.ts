@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 interface MenuItem {
+  id: string,
   url: string,
   title: string,
 }
@@ -18,10 +20,12 @@ export class MainNavigationComponent implements OnInit {
 
   items: MenuItem [] = [
     {
+      id: 'home',
       url: '/',
       title: 'Home',
     },
     {
+      id: 'favorites',
       url: '/favorites',
       title: 'Favorite Movies',
     }
@@ -29,10 +33,14 @@ export class MainNavigationComponent implements OnInit {
 
   activeItemUrl?: MenuItem['url'] = this.router.url;
 
-  constructor( private router: Router ) { }
+  constructor(
+    private router: Router,
+    private translateService: TranslateService,
+  ) { }
 
   ngOnInit(): void {
     this.setActiveItem();
+    this.setTranslation();
   }
 
   setActiveItem(): void {
@@ -43,5 +51,11 @@ export class MainNavigationComponent implements OnInit {
           this.activeItemUrl = activeItem?.url;
         }
       });
+  }
+
+  setTranslation(): void {
+    this.translateService.stream('navigation').subscribe(data => {
+      this.items = this.items.map(item => ({...item, title: data[item.id] }));
+    });
   }
 }
