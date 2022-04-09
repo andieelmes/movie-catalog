@@ -20,4 +20,5 @@
   </div>
 </div>
 
-<app-empty *ngIf="!movie"></app-empty>
+<app-empty *ngIf="!movie && !loading"></app-empty>
+<app-spinner *ngIf="loading"></app-spinner>

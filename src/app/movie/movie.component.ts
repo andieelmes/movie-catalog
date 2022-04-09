@@ -12,6 +12,8 @@ import { Genre, MovieInDetail } from '../movie';
 export class MovieComponent implements OnInit {
   @Input() movie?: MovieInDetail;
 
+  loading: boolean = true;
+
   genres: Genre[] = [];
 
   constructor(
@@ -25,7 +27,10 @@ export class MovieComponent implements OnInit {
 
   getMovie(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.movieService.getMovie(id).subscribe(movie =>  this.movie = movie);
+    this.movieService.getMovie(id).subscribe(movie => {
+      this.movie = movie;
+      this.loading = false;
+    });
   }
 
   getGenres(): void {
