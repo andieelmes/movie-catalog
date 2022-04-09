@@ -1,8 +1,9 @@
 <div class="language-switcher">
-  <button mat-icon-button aria-label="English (US)">
-    EN
-  </button>
-  <button mat-icon-button aria-label="Russian">
-    RU
+  <button
+    *ngFor="let language of languages | keyvalue"
+    mat-icon-button [class.mat-flat-button]="language.key === currentLang"
+    (click)="updateCurrentLang(language.key)"
+  >
+    {{ language.value }}
   </button>
 </div>

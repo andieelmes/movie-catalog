@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
+import { defaultLanguage } from './language';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movie-catalog';
+
+  constructor(translateService: TranslateService) {
+    translateService.setDefaultLang(defaultLanguage);
+    translateService.use(defaultLanguage);
+}
 }
