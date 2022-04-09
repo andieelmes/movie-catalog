@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 
-import { defaultLanguage } from './language';
+import localStorage from 'src/helpers/local-storage';
+import { defaultLanguage, languageStorageName } from './language';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent {
     private titleService: Title,
   ) {
     this.translateService.setDefaultLang(defaultLanguage);
-    this.translateService.use(defaultLanguage);
+    const currentLang = localStorage.get(languageStorageName) || defaultLanguage;
+    this.translateService.use(currentLang);
 
     this.translateService.stream('title').subscribe(title =>  this.titleService.setTitle(title))
   }

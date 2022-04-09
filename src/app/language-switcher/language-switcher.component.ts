@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { languages, Language, defaultLanguage } from '../language';
+import localStorage from 'src/helpers/local-storage';
+import { languages, Language, defaultLanguage, languageStorageName } from '../language';
 
 @Component({
   selector: 'app-language-switcher',
@@ -25,6 +26,7 @@ export class LanguageSwitcherComponent implements OnInit {
 
   updateCurrentLang(lang: string): void {
     this.currentLang = lang as Language;
+    localStorage.set(languageStorageName, lang);
     this.translateService.use(lang);
   }
 }
