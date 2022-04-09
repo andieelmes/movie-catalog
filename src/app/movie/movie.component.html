@@ -1,10 +1,10 @@
 <div *ngIf="movie" class="movie">
-  <app-poster src="{{movie.poster_path}}" alt="{{movie.title}} poster" size="detail"></app-poster>
+  <app-poster *ngIf="movie.poster_path" src="{{movie.poster_path}}" alt="{{movie.title}} poster" size="detail"></app-poster>
   <div>
-    <h1>{{ movie.title }}</h1>
-    <p><em>{{ movie.tagline }}</em></p>
-    <p class="movie__overview">{{ movie.overview }}</p>
-    <p>{{ 'movie.releaseDate' | translate }}: <b>{{ movie.release_date | date:'longDate' }}</b></p>
+    <h1 *ngIf="movie.title">{{ movie.title }}</h1>
+    <p *ngIf="movie.tagline"><em>{{ movie.tagline }}</em></p>
+    <p class="movie__overview" *ngIf="movie.overview">{{ movie.overview }}</p>
+    <p *ngIf="movie.release_date">{{ 'movie.releaseDate' | translate }}: <b>{{ movie.release_date | date:'longDate' }}</b></p>
     <p *ngIf="movie.genres">{{ 'movie.genres' | translate }}: {{ formatGenres(movie.genres) }}</p>
     <p *ngIf="movie.runtime">{{ 'movie.duration' | translate }}: {{ formatDuration(movie.runtime) }}</p>
     <p *ngIf="movie.production_countries">
