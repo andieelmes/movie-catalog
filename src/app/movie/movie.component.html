@@ -19,3 +19,5 @@
     <app-tags class="movie__tags" [id]="movie.id" [title]="movie.title"></app-tags>
   </div>
 </div>
+
+<app-empty *ngIf="!movie"></app-empty>

@@ -82,7 +82,7 @@ export class MovieService {
     return this.http.get<MovieInDetail>(this.getUrl(`/movie/${id}`))
       .pipe(
         map(({ poster_path, ...rest }) => ({...rest, poster_path: poster_path ? this.getPosterUrl(poster_path) : ''})),
-        catchError(this.handleError<MovieInDetail>('get movie', {}))
+        catchError(this.handleError<MovieInDetail>('get movie', undefined))
       );
   }
 
