@@ -35,6 +35,7 @@ import { TagsComponent } from './tags/tags.component';
 import { CustomMatPaginatorIntl } from 'src/intl/custom-mat-paginator-intl';
 import { EmptyComponent } from './empty/empty.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { VisuallyHiddenComponent } from './visually-hidden/visually-hidden.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -56,6 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TagsComponent,
     EmptyComponent,
     SpinnerComponent,
+    VisuallyHiddenComponent,
   ],
   imports: [
     BrowserModule,
