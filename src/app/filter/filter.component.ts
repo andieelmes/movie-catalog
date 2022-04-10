@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 import { Genre } from '../movie';
 @Component({
@@ -34,9 +35,10 @@ export class FilterComponent implements OnInit {
   }
 
   handleSearchQueryChange() {
-    this.searchQueryInput.valueChanges.subscribe(data => {
-      this.searchQueryChange.emit(data);
-    });
+    this.searchQueryInput.valueChanges.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+    ).subscribe(data => { this.searchQueryChange.emit(data) });
   }
 
   handleGenreSelect() {
