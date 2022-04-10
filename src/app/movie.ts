@@ -32,4 +32,5 @@ export interface MovieInDetail extends Movie {
   } [],
   runtime?: number,
   genres?: Genre[],
+  homepage?: string,
 }

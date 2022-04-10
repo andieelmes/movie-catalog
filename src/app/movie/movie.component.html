@@ -15,6 +15,7 @@
       {{ 'movie.producedBy' | translate }}:
       <span *ngFor="let company of movie.production_companies; let last = last">{{formatListElement(company.name, last)}}</span>
     </p>
+    <p *ngIf="movie.homepage">{{ 'movie.homepage' | translate }}: <a [href]="movie.homepage">{{movie.homepage}}</a></p>
 
     <app-tags class="movie__tags" [id]="movie.id" [title]="movie.title"></app-tags>
   </div>

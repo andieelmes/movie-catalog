@@ -1,12 +1,12 @@
 {
   "duration": {
     "hours": {
-      "one": "hour",
-      "many": "hours"
+      "many": "hours",
+      "one": "hour"
     },
     "minutes": {
-      "one": "minute",
-      "many": "minutes"
+      "many": "minutes",
+      "one": "minute"
     }
   },
   "favorite": {
@@ -24,6 +24,7 @@
   "movie": {
     "duration": "Duration",
     "genres": "Genres",
+    "homepage": "Homepage",
     "name": "Title",
     "overview": "Overview",
     "poster": "Poster",
