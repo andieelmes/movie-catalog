@@ -44,7 +44,7 @@ export class ListComponent implements OnInit {
       this.movies = movies;
       this.isCatalogLoading = false;
       this.filteredMovies = this.filterBySelectedGenres(this.movies);
-      this.resetPagination();
+      this.initPagination();
     });
   }
 
@@ -59,7 +59,7 @@ export class ListComponent implements OnInit {
     this.movieService.searchMovies(query).subscribe(movies => {
       this.movies = movies;
       this.filteredMovies = this.filterBySelectedGenres(this.movies);
-      this.resetPagination();
+      this.initPagination();
     });
   }
 
@@ -68,11 +68,11 @@ export class ListComponent implements OnInit {
 
     this.selectedGenreIds = genres;
     this.filteredMovies = this.filterBySelectedGenres(this.movies);
-    this.resetPagination();
+    this.initPagination();
   }
 
   filterBySelectedGenres(movies: Movie[]): Movie[] {
-    return this.selectedGenreIds.length
+    return this.selectedGenreIds?.length
       ? movies.filter(( { genre_ids }) => genre_ids?.some(id => this.selectedGenreIds.includes(id)))
       : movies;
   }
@@ -85,7 +85,7 @@ export class ListComponent implements OnInit {
     this.paginatedMovies = this.filteredMovies.slice(this.pageSize * this.pageIndex, this.pageSize * (this.pageIndex + 1))
   }
 
-  resetPagination() {
+  initPagination() {
     this.pageIndex = 0;
     this.setPaginatedMovies()
     this.pageSizeOptions = this.defaultPageSizeOptions.filter(length => length <= this.filteredMovies.length);

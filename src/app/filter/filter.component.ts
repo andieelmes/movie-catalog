@@ -1,8 +1,18 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
 
 import { Genre } from '../movie';
+
+import locationParams from 'src/helpers/location-params';
+
+interface Params {
+  query?: string,
+  genres?: Genre['id'][],
+};
+
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
@@ -21,13 +31,44 @@ export class FilterComponent implements OnInit {
   @Output() columnSelect = new EventEmitter<string []>();
   columnsSelect = new FormControl();
 
-  constructor() { }
+  params:Params = {};
+
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+  ) { }
 
   ngOnInit(): void {
+    this.setValuesFromParams();
     this.setDefaultColumns();
     this.handleSearchQueryChange();
     this.handleGenreSelect();
     this.handleColumnSelect();
+  }
+
+  setValuesFromParams(): void {
+    this.route.queryParams.subscribe((params) => {
+      const { query, genres } = params;
+
+      if (query) {
+        this.params.query = query;
+        this.searchQueryInput.setValue(query);
+        this.searchQueryChange.emit(query);
+      }
+
+      try {
+        const parsedGenres = genres?.split(',').map(Number);
+        this.params.genres = parsedGenres;
+        this.genresSelect.setValue(parsedGenres);
+        this.genreSelect.emit(parsedGenres);
+      } catch (error) {
+        console.log(`params parse error: ${error}`);
+      }
+    });
+  }
+
+  updateParamsFromValues(): void {
+    this.location.go('/', locationParams.combine({ ...this.params }));
   }
 
   setDefaultColumns(): void {
@@ -36,15 +77,22 @@ export class FilterComponent implements OnInit {
 
   handleSearchQueryChange() {
     this.searchQueryInput.valueChanges.pipe(
+      tap((query) => {
+        this.params.query = query;
+        this.updateParamsFromValues();
+      }),
       debounceTime(300),
       distinctUntilChanged(),
     ).subscribe(data => { this.searchQueryChange.emit(data) });
   }
 
   handleGenreSelect() {
-    this.genresSelect.valueChanges.subscribe(data => {
-      this.genreSelect.emit(data);
-    });
+    this.genresSelect.valueChanges.pipe(
+      tap((genres) => {
+        this.params.genres = genres;
+        this.updateParamsFromValues();
+      }),
+    ).subscribe(data => this.genreSelect.emit(data));
   }
 
   handleColumnSelect() {
