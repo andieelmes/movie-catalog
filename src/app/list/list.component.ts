@@ -49,6 +49,8 @@ export class ListComponent implements OnInit {
   }
 
   search(query: string): void {
+    this.scrollToTop();
+
     if (!query.length) {
       this.getInitialMovies();
       return;
@@ -62,6 +64,8 @@ export class ListComponent implements OnInit {
   }
 
   selectGenres(genres: Genre['id'][]): void {
+    this.scrollToTop();
+
     this.selectedGenreIds = genres;
     this.filteredMovies = this.filterBySelectedGenres(this.movies);
     this.resetPagination();
@@ -90,7 +94,10 @@ export class ListComponent implements OnInit {
   handlePagination({ pageIndex }: PageEvent) {
     this.pageIndex = pageIndex;
     this.setPaginatedMovies();
+    this.scrollToTop();
+  }
 
+  scrollToTop(): void {
     if (this.moviesContainer) this.moviesContainer.nativeElement.scroll({ top: 0, behavior: 'smooth' });
   }
 }
