@@ -51,7 +51,7 @@ export class ListComponent implements OnInit {
   search(query: string): void {
     this.scrollToTop();
 
-    if (!query.length) {
+    if (!query?.length) {
       this.getInitialMovies();
       return;
     }
