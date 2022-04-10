@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListComponent } from './list/list.component';
-import { FavoritesComponent } from './favorites/favorites.component';
-import { MovieComponent } from './movie/movie.component';
 
 const routes: Routes = [
-  { path: '', component: ListComponent },
-  { path: 'movies/:id', component: MovieComponent },
-  { path: 'favorites', component: FavoritesComponent },
+  { path: '', loadChildren: () => import('./list/list.module').then(m => m.ListModule) },
+  { path: 'movies/:id', loadChildren: () => import('./movie/movie.module').then(m => m.MovieModule) },
+  { path: 'favorites', loadChildren: () => import('./favorites/favorites.module').then(m => m.FavoritesModule) },
   { path: '**', redirectTo: '' }
 ];
 
