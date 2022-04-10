@@ -17,7 +17,7 @@
   <ul class="favorites__movies">
     <li *ngFor="let movie of movies"class="favorites__movie">
       <a class="favorites__movie-link" routerLink="/movies/{{ movie.id }}">{{movie.title}}</a>
-      (<span>{{ movie.tags.join(', ')}}</span>)
+      (<span class="favorites__movie-tags">{{ movie.tags.join(', ')}}</span>)
     </li>
   </ul>
 </form>

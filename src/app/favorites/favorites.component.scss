@@ -8,7 +8,7 @@
 
 .favorites__movies {
   margin: 0;
-  padding: 0;
+  padding: 0 20px;
   list-style: none;
 }
 
@@ -21,4 +21,8 @@
   + .favorites__movie {
     margin-top: 10px;
   }
+}
+
+.favorites__movie-tags {
+  color: #676767;
 }
