@@ -73,8 +73,8 @@ export class MovieService {
       );
   }
 
-  getMovies(genres?: Genre['id'][], query?: string): Observable<Movie[]> {
-    return this.http.get<{results: Movie[]}>(this.getUrl('/discover/movie', { with_genres: genres, with_keywords: query }))
+  getInitialMovies(): Observable<Movie[]> {
+    return this.http.get<{results: Movie[]}>(this.getUrl('/discover/movie'))
       .pipe(
         map(result => (
           result.results.map(({ poster_path, ...rest}) => ({
@@ -82,7 +82,20 @@ export class MovieService {
             poster_path: poster_path ? this.getPosterUrl(poster_path, this.imageConfig.catalogSize) : ''
           }))
         )),
-        catchError(this.handleError<Movie[]>('get movies', []))
+        catchError(this.handleError<Movie[]>('get initial movies', []))
+      );
+  }
+
+  searchMovies(query?: string): Observable<Movie[]> {
+    return this.http.get<{results: Movie[]}>(this.getUrl('/search/movie', { query }))
+      .pipe(
+        map(result => (
+          result.results.map(({ poster_path, ...rest}) => ({
+            ...rest,
+            poster_path: poster_path ? this.getPosterUrl(poster_path, this.imageConfig.catalogSize) : ''
+          }))
+        )),
+        catchError(this.handleError<Movie[]>('search movies', []))
       );
   }
 

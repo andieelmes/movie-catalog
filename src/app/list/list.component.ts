@@ -18,6 +18,7 @@ export class ListComponent implements OnInit {
 
   @ViewChild('moviesContainer') moviesContainer?: ElementRef<HTMLDivElement>;
   movies: Movie[] = [];
+  filteredMovies: Movie[] = [];
   paginatedMovies: Movie[] = [];
 
   pageSize: number = 10;
@@ -31,34 +32,45 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGenres();
-    this.getMovies();
+    this.getInitialMovies();
   }
 
   getGenres(): void {
     this.movieService.getGenres().subscribe(genres => this.genres = genres);
   }
 
-  getMovies(): void {
-    this.movieService.getMovies().subscribe(movies => {
+  getInitialMovies(): void {
+    this.movieService.getInitialMovies().subscribe(movies => {
       this.movies = movies;
       this.isCatalogLoading = false;
+      this.filteredMovies = this.filterBySelectedGenres(this.movies);
       this.resetPagination();
     });
   }
 
   search(query: string): void {
-    this.movieService.getMovies(this.selectedGenreIds, query).subscribe(movies => {
+    if (!query.length) {
+      this.getInitialMovies();
+      return;
+    }
+
+    this.movieService.searchMovies(query).subscribe(movies => {
       this.movies = movies;
+      this.filteredMovies = this.filterBySelectedGenres(this.movies);
       this.resetPagination();
     });
   }
 
   selectGenres(genres: Genre['id'][]): void {
     this.selectedGenreIds = genres;
-    this.movieService.getMovies(this.selectedGenreIds).subscribe(movies => {
-      this.movies = movies;
-      this.resetPagination();
-    });
+    this.filteredMovies = this.filterBySelectedGenres(this.movies);
+    this.resetPagination();
+  }
+
+  filterBySelectedGenres(movies: Movie[]): Movie[] {
+    return this.selectedGenreIds.length
+      ? movies.filter(( { genre_ids }) => genre_ids?.some(id => this.selectedGenreIds.includes(id)))
+      : movies;
   }
 
   selectColumns(columns: string[]): void {
@@ -66,13 +78,13 @@ export class ListComponent implements OnInit {
   }
 
   setPaginatedMovies() {
-    this.paginatedMovies = this.movies.slice(this.pageSize * this.pageIndex, this.pageSize * (this.pageIndex + 1))
+    this.paginatedMovies = this.filteredMovies.slice(this.pageSize * this.pageIndex, this.pageSize * (this.pageIndex + 1))
   }
 
   resetPagination() {
     this.pageIndex = 0;
     this.setPaginatedMovies()
-    this.pageSizeOptions = this.defaultPageSizeOptions.filter(length => length <= this.movies.length);
+    this.pageSizeOptions = this.defaultPageSizeOptions.filter(length => length <= this.filteredMovies.length);
   }
 
   handlePagination({ pageIndex }: PageEvent) {
