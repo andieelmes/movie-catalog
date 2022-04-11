@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
 
-import { Genre } from '../movie';
+import { Genre } from 'src/models/movie';
 
 import locationParams from 'src/helpers/location-params';
 

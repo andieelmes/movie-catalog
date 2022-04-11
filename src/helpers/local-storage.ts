@@ -1,5 +1,5 @@
-import isLocalStorageAvailable from './is-local-storage-available';
-import cookies from './cookies';
+import isLocalStorageAvailable from 'src/helpers/is-local-storage-available';
+import cookies from 'src/helpers/cookies';
 
 const localStorageAvailable = isLocalStorageAvailable();
 

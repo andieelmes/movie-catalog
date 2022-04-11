@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 import { formatGenres } from 'src/helpers/genre';
 
-import { Movie, Genre } from '../movie';
+import { Movie, Genre } from 'src/models/movie';
 
 @Component({
   selector: 'app-catalog',

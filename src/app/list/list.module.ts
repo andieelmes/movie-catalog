@@ -5,14 +5,14 @@ import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginato
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { SharedModule } from '../shared.module';
+import { SharedModule } from 'src/app/shared.module';
+
+import { CatalogComponent } from 'src/app/catalog/catalog.component';
+import { FilterComponent } from 'src/app/filter/filter.component';
+import { CustomMatPaginatorIntl } from 'src/intl/custom-mat-paginator-intl';
 
 import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from './list.component';
-import { CatalogComponent } from '../catalog/catalog.component';
-import { FilterComponent } from '../filter/filter.component';
-
-import { CustomMatPaginatorIntl } from 'src/intl/custom-mat-paginator-intl';
 
 @NgModule({
   imports: [

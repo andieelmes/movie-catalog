@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 
-import { FavoriteService } from '../favorite.service';
-import { Tag } from '../favorite';
-import { Movie } from '../movie';
+import { FavoriteService } from 'src/services/favorite.service';
+import { Tag } from 'src/models/favorite';
+import { Movie } from 'src/models/movie';
 
 @Component({
   selector: 'app-tags',

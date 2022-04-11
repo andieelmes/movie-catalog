@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { FavoriteService, FavoriteMovie } from '../favorite.service';
-import { Tag } from '../favorite';
+import { FavoriteService, FavoriteMovie } from 'src/services/favorite.service';
+import { Tag } from 'src/models/favorite';
 import nonNullable from 'src/helpers/non-nullable';
 @Component({
   selector: 'app-favorites',

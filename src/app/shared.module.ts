@@ -11,12 +11,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { PosterComponent } from './poster/poster.component';
-import { EmptyComponent } from './empty/empty.component';
-import { SpinnerComponent } from './spinner/spinner.component';
-import { VisuallyHiddenComponent } from './visually-hidden/visually-hidden.component';
+import { PosterComponent } from 'src/app/poster/poster.component';
+import { EmptyComponent } from 'src/app/empty/empty.component';
+import { SpinnerComponent } from 'src/app/spinner/spinner.component';
+import { VisuallyHiddenComponent } from 'src/app/visually-hidden/visually-hidden.component';
 
-import { Duration } from './pipes/duration';
+import { Duration } from 'src/pipes/duration';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);

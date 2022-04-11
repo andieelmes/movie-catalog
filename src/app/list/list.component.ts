@@ -1,8 +1,8 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-
-import { MovieService } from '../movie.service';
-import { Genre, Movie } from '../movie';
 import { PageEvent } from '@angular/material/paginator';
+
+import { MovieService } from 'src/services/movie.service';
+import { Genre, Movie } from 'src/models/movie';
 
 @Component({
   selector: 'app-list',

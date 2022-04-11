@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 
 import localStorage from 'src/helpers/local-storage';
-import { defaultLanguage, languageStorageName } from './language';
+import { defaultLanguage, languageStorageName } from 'src/app/language';
 
 @Component({
   selector: 'app-root',

@@ -5,18 +5,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-import { SharedModule } from './shared.module';
+import { SharedModule } from 'src/app/shared.module';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
-import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { HeaderComponent } from './header/header.component';
-import { MainNavigationComponent } from './main-navigation/main-navigation.component';
-import { LanguageSwitcherComponent } from './language-switcher/language-switcher.component';
+import { MainLayoutComponent } from 'src/app/main-layout/main-layout.component';
+import { HeaderComponent } from 'src/app/header/header.component';
+import { MainNavigationComponent } from 'src/app/main-navigation/main-navigation.component';
+import { LanguageSwitcherComponent } from 'src/app/language-switcher/language-switcher.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);

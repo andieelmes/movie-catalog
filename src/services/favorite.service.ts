@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 import localStorage from 'src/helpers/local-storage';
 
-import { Tag } from './favorite';
-import { Movie } from './movie';
+import { Tag } from 'src/models/favorite';
+import { Movie } from 'src/models/movie';
 
 export interface FavoriteMovie {
   id: Movie['id'],

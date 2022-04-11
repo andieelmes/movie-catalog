@@ -6,8 +6,8 @@ import { catchError, map } from 'rxjs/operators';
 
 import locationParams from 'src/helpers/location-params';
 
-import { environment } from '../environments/environment';
-import { DBConfig, Genre, Movie, MovieInDetail } from './movie';
+import { environment } from 'src/environments/environment';
+import { DBConfig, Genre, Movie, MovieInDetail } from 'src/models/movie';
 
 const DETAIL_POSTER_SIZE = 'w780';
 const CATALOG_POSTER_SIZE = 'w342';

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 import localStorage from 'src/helpers/local-storage';
-import { languages, Language, defaultLanguage, languageStorageName } from '../language';
+import { languages, Language, defaultLanguage, languageStorageName } from 'src/app/language';
 
 @Component({
   selector: 'app-language-switcher',
