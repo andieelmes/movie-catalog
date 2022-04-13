@@ -15,7 +15,7 @@ interface FavoriteMovieStorage {
   [propName: string]: FavoriteMovie | null,
 }
 
-const storageName = `_favorite_movies`
+export const storageName = `_favorite_movies`
 
 @Injectable({
   providedIn: 'root'
@@ -60,10 +60,12 @@ export class FavoriteService {
     const updatedTags = movie.tags.filter(prevTag => prevTag !== tag);
 
     if (updatedTags.length === 0) {
-      this.setData({ ...data, [id!]: null });
+      const rest = Object.fromEntries(Object.entries(data).filter(entry => String(id) !== entry[0]));
+      this.setData(rest);
+      return updatedTags;
     }
-    this.setData({ ...data, [id!]: { ...movie, tags: updatedTags }});
 
+    this.setData({ ...data, [id!]: { ...movie, tags: updatedTags }});
     return updatedTags;
   }
 }
