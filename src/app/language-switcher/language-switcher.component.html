@@ -3,6 +3,7 @@
     *ngFor="let language of languages | keyvalue"
     mat-icon-button [class.mat-flat-button]="language.key === currentLang"
     (click)="updateCurrentLang(language.key)"
+    attr.data-language="{{language.key}}"
   >
     {{ language.value }}
   </button>
