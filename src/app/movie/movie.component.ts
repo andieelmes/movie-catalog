@@ -33,10 +33,6 @@ export class MovieComponent implements OnInit {
     });
   }
 
-  getGenres(): void {
-    this.movieService.getGenres().subscribe(genres => this.genres = genres);
-  }
-
   formatGenres(genres: Genre[]) {
     return genres.map(genre => genre.name).join(', ');
   }
