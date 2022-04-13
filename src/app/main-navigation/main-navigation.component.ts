@@ -16,7 +16,7 @@ interface MenuItem {
 export class MainNavigationComponent implements OnInit {
   @Input() isMobile = false;
 
-  @Output() select = new EventEmitter();
+  @Output() selectMenuITem = new EventEmitter();
 
   items: MenuItem [] = [
     {

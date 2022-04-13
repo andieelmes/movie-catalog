@@ -4,7 +4,7 @@
     mat-button [class.mat-flat-button]="item.url === activeItemUrl"
     routerLink="{{ item.url }}"
     class="main-navigation__link"
-    (click)="select.emit()"
+    (click)="selectMenuITem.emit()"
   >
     {{ item.title }}
   </a>
