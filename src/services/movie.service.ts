@@ -21,7 +21,7 @@ export class MovieService {
 
   private apiKey = environment.apiKey;
 
-  private getUrl = (url: string, params?: {}) => {
+  _getUrl = (url: string, params?: {}) => {
     const paramString = locationParams.combine({ api_key: this.apiKey, ...params })
 
     return `${this.apiBase}${url}${paramString}`;
@@ -58,7 +58,7 @@ export class MovieService {
   }
 
   getConfig(): Observable<DBConfig> {
-    return this.http.get<{images: DBConfig}>(this.getUrl('/configuration'))
+    return this.http.get<{images: DBConfig}>(this._getUrl('/configuration'))
       .pipe(
         map(result => result.images),
         catchError(this.handleError<DBConfig>('get configuration', {}))
@@ -66,7 +66,7 @@ export class MovieService {
   }
 
   getGenres(): Observable<Genre[]> {
-    return this.http.get<{genres: Genre[]}>(this.getUrl('/genre/movie/list'))
+    return this.http.get<{genres: Genre[]}>(this._getUrl('/genre/movie/list'))
       .pipe(
         map(result => result.genres),
         catchError(this.handleError<Genre[]>('get genres', []))
@@ -74,7 +74,7 @@ export class MovieService {
   }
 
   getInitialMovies(): Observable<Movie[]> {
-    return this.http.get<{results: Movie[]}>(this.getUrl('/discover/movie'))
+    return this.http.get<{results: Movie[]}>(this._getUrl('/discover/movie'))
       .pipe(
         map(result => (
           result.results.map(({ poster_path, ...rest}) => ({
@@ -87,7 +87,7 @@ export class MovieService {
   }
 
   searchMovies(query?: string): Observable<Movie[]> {
-    return this.http.get<{results: Movie[]}>(this.getUrl('/search/movie', { query }))
+    return this.http.get<{results: Movie[]}>(this._getUrl('/search/movie', { query }))
       .pipe(
         map(result => (
           result.results.map(({ poster_path, ...rest}) => ({
@@ -100,7 +100,7 @@ export class MovieService {
   }
 
   getMovie(id: number): Observable<MovieInDetail> {
-    return this.http.get<MovieInDetail>(this.getUrl(`/movie/${id}`))
+    return this.http.get<MovieInDetail>(this._getUrl(`/movie/${id}`))
       .pipe(
         map(({ poster_path, ...rest }) => ({
           ...rest,
