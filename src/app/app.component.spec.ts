@@ -1,36 +1,58 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateTestingModule } from 'ngx-translate-testing';
+import { TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
+import { of } from 'rxjs';
+
+import { languageStorageName } from 'src/app/language';
 
 import { AppComponent } from './app.component';
 
+const testTitle = 'test title';
+
+const MockTranslateService = {
+  setDefaultLang(value: string) {
+    localStorage.setItem(languageStorageName, value)
+  },
+  use() {},
+  stream() {
+    return of(testTitle);
+  }
+}
+
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let title: Title;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        TranslateTestingModule
+          .withTranslations({})
+          .withDefaultLanguage('en'),
       ],
-      declarations: [
-        AppComponent
+      declarations: [AppComponent],
+      providers: [
+        AppComponent,
+        { provide: TranslateService, useValue: MockTranslateService },
+        { provide: Title },
       ],
     }).compileComponents();
+
+    title = TestBed.inject(Title);
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'movie-catalog'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('movie-catalog');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('movie-catalog app is running!');
+  it('should set title', () => {
+    expect(title.getTitle()).toEqual(testTitle)
   });
 });
