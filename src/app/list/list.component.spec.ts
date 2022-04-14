@@ -5,6 +5,10 @@ import { MovieService } from 'src/services/movie.service';
 import { of } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 
+import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator'
+import { MatTableModule } from '@angular/material/table';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { ListComponent } from './list.component';
 
 import { mockInitialMovies, mockGenres, mockSearchedMovies } from 'src/mocks/movie';
@@ -32,6 +36,10 @@ describe('ListComponent', () => {
           .withTranslations({})
           .withDefaultLanguage('en'),
         SharedModule,
+        MatPaginatorModule,
+        MatTableModule,
+        FormsModule,
+        ReactiveFormsModule,
       ],
       declarations: [ListComponent],
       providers: [ListComponent,
