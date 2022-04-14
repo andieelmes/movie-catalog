@@ -22,6 +22,7 @@ export class FavoritesComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
     this.getTags();
+    this.setDefaultView();
     this.handleTagSelect();
   }
 
@@ -34,9 +35,15 @@ export class FavoritesComponent implements OnInit {
     this.tags = tags;
   }
 
+  setDefaultView(): void {
+    this.setMoviesByTags();
+  }
+
+  setMoviesByTags(selectedTags?: Tag[]): void {
+    this.movies = selectedTags?.length ? this.data.filter(({ tags }) => selectedTags!.some((tag: Tag) => tags.includes(tag))) : this.data;
+  }
+
   handleTagSelect() {
-    this.tagsSelect.valueChanges.subscribe(selectedTags => {
-      this.movies = this.data.filter(({ tags }) => selectedTags.some((tag: Tag) => tags.includes(tag)));
-    });
+    this.tagsSelect.valueChanges.subscribe((tags) => this.setMoviesByTags(tags));
   }
 }

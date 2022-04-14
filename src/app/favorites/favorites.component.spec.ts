@@ -19,7 +19,7 @@ const favoriteMovie = {
 };
 
 class MockFavoriteService {
-  getData =() => [favoriteMovie];
+  getData =() => [favoriteMovie, { ...favoriteMovie, id: 1235, tags: ['other-tag'] }];
 }
 
 describe('FavoritesComponent', () => {
@@ -59,7 +59,7 @@ describe('FavoritesComponent', () => {
   });
 
   it('should display movie with selected tag', async () => {
-    expect(document.querySelector('.favorites__movie')).toBeFalsy();
+    expect(document.querySelectorAll('.favorites__movie').length).toEqual(2);
 
     const select = await loader.getHarness(MatSelectHarness);
     await select.open();
