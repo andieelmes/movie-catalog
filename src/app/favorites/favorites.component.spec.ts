@@ -10,6 +10,7 @@ import { SharedModule } from 'src/app/shared.module';
 import { FavoriteService } from 'src/services/favorite.service';
 
 import { FavoritesComponent } from './favorites.component';
+import { FavoritesRoutingModule } from './favorites-routing.module';
 
 const favoriteMovie = {
   id: 1234,
@@ -36,6 +37,7 @@ describe('FavoritesComponent', () => {
         SharedModule,
         BrowserAnimationsModule,
         RouterTestingModule,
+        FavoritesRoutingModule,
       ],
       providers: [FavoritesComponent, { provide: FavoriteService, useClass: MockFavoriteService }],
       declarations: [FavoritesComponent]

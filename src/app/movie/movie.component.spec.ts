@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 
 import { MovieService } from 'src/services/movie.service';
 import { MovieComponent } from './movie.component';
+import { MovieRoutingModule } from './movie-routing.module';
 
 import { mockMovie, mockDisplayedGenres, mockDisplayedProductionCompanies, mockDisplayedProductionCountries } from 'src/mocks/movie';
 
@@ -28,6 +29,7 @@ describe('MovieComponent', () => {
           .withDefaultLanguage('en'),
         SharedModule,
         BrowserAnimationsModule,
+        MovieRoutingModule
       ],
       declarations: [MovieComponent],
       providers: [MovieComponent,

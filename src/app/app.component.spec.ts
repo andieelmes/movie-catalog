@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule } from '@angular/router';
 import { TranslateTestingModule } from 'ngx-translate-testing';
 import { TranslateService } from '@ngx-translate/core';
 import { Title } from '@angular/platform-browser';
@@ -33,6 +34,7 @@ describe('AppComponent', () => {
         TranslateTestingModule
           .withTranslations({})
           .withDefaultLanguage('en'),
+        RouterModule.forRoot([]),
       ],
       declarations: [AppComponent],
       providers: [
