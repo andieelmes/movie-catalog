@@ -91,7 +91,8 @@ export class ListComponent implements OnInit {
     this.pageSizeOptions = this.defaultPageSizeOptions.filter(length => length <= this.filteredMovies.length);
   }
 
-  handlePagination({ pageIndex }: PageEvent) {
+  handlePagination({ pageSize, pageIndex }: PageEvent) {
+    this.pageSize = pageSize;
     this.pageIndex = pageIndex;
     this.setPaginatedMovies();
     this.scrollToTop();

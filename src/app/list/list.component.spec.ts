@@ -72,7 +72,7 @@ describe('ListComponent', () => {
     expect(component.paginatedMovies.length).toEqual(Math.min(component.pageSize, mockSearchedMovies.length));
 
     const nextIndex = 1;
-    component.handlePagination({ pageIndex: nextIndex } as PageEvent);
+    component.handlePagination({ pageIndex: nextIndex, pageSize: 10 } as PageEvent);
     expect(component.paginatedMovies.length).toEqual(Math.min(mockSearchedMovies.length - component.pageSize * nextIndex, component.pageSize));
     expect(component.pageIndex).toEqual(nextIndex);
   });
