@@ -1,0 +1,18 @@
+<mat-form-field class="tags" appearance="fill">
+  <mat-label>{{ 'tags.tags' | translate }}</mat-label>
+  <mat-chip-list #chipList attr.aria-label="{{ 'tags.setTags' | translate }}">
+    <mat-chip *ngFor="let tag of tags" (removed)="remove(tag)">
+      {{tag}}
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+    <input
+      placeholder="{{ 'tags.newTag' | translate }}..."
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="true"
+      (matChipInputTokenEnd)="add($event)"
+    >
+  </mat-chip-list>
+</mat-form-field>

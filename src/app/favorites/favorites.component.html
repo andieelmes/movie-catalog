@@ -1,0 +1,23 @@
+<app-visually-hidden><h1>{{ 'favorite.title' | translate }}</h1></app-visually-hidden>
+
+<form class="favorites">
+  <mat-form-field appearance="fill" class="favorites__tags-select" *ngIf="tags.length">
+    <mat-label>{{ 'tags.selectTags' | translate }}...</mat-label>
+    <mat-select multiple [formControl]="tagsSelect">
+      <mat-option *ngFor="let tag of tags" [value]="tag">
+        {{tag}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <app-empty *ngIf="!tags.length">
+    {{ 'favorite.notFound' | translate }}
+  </app-empty>
+
+  <ul class="favorites__movies">
+    <li *ngFor="let movie of movies"class="favorites__movie">
+      <a class="favorites__movie-link" routerLink="/movies/{{ movie.id }}">{{movie.title}}</a>
+      (<span class="favorites__movie-tags">{{ movie.tags.join(', ')}}</span>)
+    </li>
+  </ul>
+</form>

@@ -1,0 +1,25 @@
+.header__toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__dropdown {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: 8px 16px;
+}
+
+.header__actions {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.header.is-mobile {
+  .header__main-navigation {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

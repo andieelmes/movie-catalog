@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.list__body {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.list__footer {
+  position: sticky;
+  display: block;
+  bottom: 0;
+}

@@ -1,0 +1,57 @@
+{
+  "duration": {
+    "hours": {
+      "few": "часа",
+      "many": "часов",
+      "one": "час"
+    },
+    "minutes": {
+      "few": "минуты",
+      "many": "минут",
+      "one": "минута"
+    }
+  },
+  "favorite": {
+    "notFound": "Тут будут фильмы, у которых проставлены теги",
+    "title": "Избранное"
+  },
+  "filter": {
+    "columns": "Столбцы",
+    "genres": "Жанры",
+    "search": "Поиск"
+  },
+  "main": {
+    "title": "Поиск по фильмам"
+  },
+  "movie": {
+    "duration": "Продолжительность",
+    "genres": "Жанры",
+    "homepage": "Сайт",
+    "name": "Название",
+    "overview": "Описание",
+    "poster": "Постер",
+    "producedBy": "Кинокомпании",
+    "producedIn": "Страны",
+    "releaseDate": "Дата выхода"
+  },
+  "navigation": {
+    "favorites": "Избранное кино",
+    "home": "Главная"
+  },
+  "notFoundMessage": "Ничего не найдено",
+  "paginator": {
+    "action": "Выберите страницу",
+    "itemsPerPageLabel": "Количество элементов на странице:",
+    "nextPage": "Следующая страница",
+    "previousPage": "Предыдущая страница",
+    "range": "{{start}} — {{end}} из {{length}}",
+    "rangeEmpty": "0 из {{length}}"
+  },
+  "tags": {
+    "newTag": "Новый тег",
+    "selectTags": "Выберите теги",
+    "setTags": "Проставить теги",
+    "tags": "Теги"
+  },
+  "title": "Каталог кино"
+}

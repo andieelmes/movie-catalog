@@ -1,0 +1,55 @@
+{
+  "duration": {
+    "hours": {
+      "many": "hours",
+      "one": "hour"
+    },
+    "minutes": {
+      "many": "minutes",
+      "one": "minute"
+    }
+  },
+  "favorite": {
+    "notFound": "Try tagging some movies first",
+    "title": "Favorites"
+  },
+  "filter": {
+    "columns": "Columns",
+    "genres": "Genres",
+    "search": "Search"
+  },
+  "main": {
+    "title": "Search Movies"
+  },
+  "movie": {
+    "duration": "Duration",
+    "genres": "Genres",
+    "homepage": "Homepage",
+    "name": "Title",
+    "overview": "Overview",
+    "poster": "Poster",
+    "producedBy": "Produced by",
+    "producedIn": "Produced in",
+    "releaseDate": "Release Date"
+  },
+  "navigation": {
+    "favorites": "Favorite Movies",
+    "home": "Home"
+  },
+  "notFoundMessage": "Nothing to see here",
+  "paginator": {
+    "action": "Select page",
+    "itemsPerPageLabel": "Items per page:",
+    "nextPage": "Next page",
+    "previousPage": "Previous page",
+    "range": "{{start}} — {{end}} of {{length}}",
+    "rangeEmpty": "0 of {{length}}"
+  },
+  "tags": {
+    "newTag": "New Tag",
+    "selectTags": "Select tags",
+    "setTags": "Set Tags",
+    "tags": "Tags"
+  },
+  "title": "Movie Catalog"
+}

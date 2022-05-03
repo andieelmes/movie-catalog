@@ -1,0 +1,24 @@
+<form class="filter">
+  <mat-form-field appearance="fill">
+    <mat-label>{{ 'filter.search' | translate }}</mat-label>
+    <input matInput placeholder="..." [formControl]="searchQueryInput">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>{{ 'filter.columns' | translate }}</mat-label>
+    <mat-select multiple [formControl]="columnsSelect">
+      <mat-option *ngFor="let column of columns" [value]="column">
+        {{ 'movie.' + column | translate }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>{{ 'filter.genres' | translate }}</mat-label>
+    <mat-select multiple [formControl]="genresSelect">
+      <mat-option *ngFor="let genre of genres" [value]="genre.id">
+        {{ genre.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

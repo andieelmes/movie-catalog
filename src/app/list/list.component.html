@@ -1,0 +1,38 @@
+<app-visually-hidden><h1>{{ 'main.title' | translate }}</h1></app-visually-hidden>
+
+<div class="list">
+  <app-filter
+    class="list__filter"
+    (searchQueryChange)="search($event)"
+    [genres]="genres"
+    (genreSelect)="selectGenres($event)"
+    [columns]="columns"
+    (columnSelect)="selectColumns($event)"
+    [displayedColumns]="displayedColumns"
+  ></app-filter>
+
+  <div class="list__body" #moviesContainer>
+    <app-catalog
+      class="list__table"
+      [movies]="paginatedMovies"
+      [genres]="genres"
+      [displayedColumns]="displayedColumns"
+      *ngIf="paginatedMovies.length"
+    ></app-catalog>
+
+    <app-empty *ngIf="!paginatedMovies.length && !isCatalogLoading"></app-empty>
+    <app-spinner *ngIf="isCatalogLoading"></app-spinner>
+  </div>
+
+  <mat-paginator
+    class="list__footer"
+    [length]="filteredMovies.length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    [pageSizeOptions]="pageSizeOptions"
+    attr.aria-label="{{ 'paginator.action' | translate }}"
+    (page)="handlePagination($event)"
+    *ngIf="paginatedMovies.length"
+  >
+  </mat-paginator>
+</div>

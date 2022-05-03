@@ -1,0 +1,13 @@
+.poster {
+  display: block;
+  max-width: 100%;
+  aspect-ratio: 2/3;
+
+  &.size_table {
+    width: 200px;
+  }
+
+  &.size_detail {
+    width: 500px;
+  }
+}
